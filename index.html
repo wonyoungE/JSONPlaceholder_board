@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>게시판</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>게시판</h1>
+        <p>JSONPlaceholder API를 이용한 게시판</p>
+      </header>
+      <div id="postListContainer" class="page-container active">
+        <h2>전체 게시물</h2>
+        <ul id="postList">
+          <p class="loading-message">게시물 불러오는중...</p>
+        </ul>
+      </div>
+      <div id="postDetailContainer" class="page-container">
+        <h2 id="detailTitle">게시물 제목</h2>
+        <p>
+          게시물ID: <span id="postId"></span> | 작성자ID:
+          <span id="userId"></span>
+        </p>
+        <p id="detailContent">내용 불러오는중...</p>
+        <button id="backBtn">← 목록으로 돌아가기</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

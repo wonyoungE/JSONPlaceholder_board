@@ -4,12 +4,15 @@ const postListContainer = document.querySelector("#postListContainer");
 const postDetailContainer = document.querySelector("#postDetailContainer");
 
 const postList = document.querySelector("#postList");
+const commentList = document.querySelector("#commentList");
 
 const detailTitle = document.querySelector("#detailTitle");
 const detailPostId = document.querySelector("#detailPostId");
 const detailUserId = document.querySelector("#detailUserId");
 const detailBody = document.querySelector("#detailBody");
 const backBtn = document.querySelector("#backBtn");
+
+const emojiList = ["🐱", "🐶", "🦊", "🐻", "🐸", "🐼", "🦁", "🐧", "🐵", "🐯"];
 
 // 게시물 페이지 변환 함수
 // 게시물 목록 페이지 <-> 게시물 상세 페이지 변환하는 함수
@@ -99,6 +102,35 @@ async function getPostDetail(postId) {
 }
 
 // 게시물 댓글 요청 함수
+async function getComments(postId) {
+  try {
+    const response = await fetch(`${API_BASE_URL}/posts/${postId}/comments`);
+
+    if (!response.ok) {
+      throw new Error("에러 발생!");
+    }
+
+    const comments = await response.json();
+    commentList.innerHTML = "";
+
+    // 댓글 개수도 하고 싶음!
+    if (comments) {
+      // comment 객체 -> postId, id, name, email, body
+      commentList.innerHTML = `<p class="commentCnt">💬 댓글 <strong>${comments.length}</strong>개</p>`;
+      comments.forEach((comment) => {
+        const emoji = emojiList[Math.floor(Math.random() * emojiList.length)];
+        commentList.innerHTML += `<li>
+                        <p class="commentUserId">댓글 작성자ID: <strong>${comment.id}</strong></p>
+                        <p class="commentBody">${emoji} ${comment.body}</p>
+                    </li>`;
+      });
+    } else {
+      commentList.innerHTML = '<p class="commentCnt">💬 댓글 0개</p>';
+    }
+  } catch (error) {
+    console.log("댓글 목록을 가져오는데 실패했습니다.");
+  }
+}
 
 getPosts();
 

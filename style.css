@@ -125,7 +125,7 @@ button:hover {
 }
 
 #detailBody {
-  font-size: 1.1em;
+  font-size: 1.2em;
 }
 
 hr {
@@ -134,7 +134,43 @@ hr {
 }
 
 #commentList {
+  text-align: left;
   margin: 0;
   padding: 0;
   list-style: none;
+}
+
+/* #commentList > li {
+  text-align: left;
+} */
+
+#commentList > li {
+  background-color: #fff7e9;
+  border: 1px solid #ebe1d0;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+}
+
+#commentList > li:hover {
+  background-color: rgb(233, 233, 230);
+}
+
+.commentCnt {
+  font-size: 0.9em;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.commentUserId {
+  font-size: 1em;
+  margin: 0;
+  margin-bottom: 5px;
+}
+
+.commentBody {
+  font-size: 1em;
+  margin: 0;
 }

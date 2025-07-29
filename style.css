@@ -61,10 +61,12 @@ header > p {
 }
 
 #postList {
+  max-height: 800px;
   margin: 0;
   padding: 0;
   list-style: none;
   margin-bottom: 10px;
+  overflow: auto;
 }
 
 #postList > li {
@@ -91,7 +93,7 @@ header > p {
   color: #faa307;
 }
 
-.detail-btn {
+button {
   color: white;
   font-size: 0.9em;
   font-weight: 400;
@@ -104,6 +106,35 @@ header > p {
   transition: all 0.3s ease;
 }
 
-.detail-btn:hover {
+button:hover {
   background-color: #e69807;
+}
+
+#postDetailContainer {
+  padding: 30px;
+}
+
+#postDetailContainer > p:nth-of-type(1) {
+  font-size: 0.9em;
+  color: #888;
+}
+
+#detailTitle {
+  font-size: 1.6em;
+  color: #e69807;
+}
+
+#detailBody {
+  font-size: 1.1em;
+}
+
+hr {
+  color: #666;
+  margin: 30px 0;
+}
+
+#commentList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }

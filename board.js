@@ -48,10 +48,11 @@ async function getPosts() {
       // 게시물이 존재할 경우
       posts.forEach((post) => {
         // post 객체 -> userId, id, title, body
-        // 상세 게시물 페이지 위해서 postId 넣어주기, 제목을 클릭하든, 버튼을 클릭하든 ㄱㄱ
+        // 제목 클릭 -> 게시물 상세 페이지로 이동
+        // 작성자 클릭 -> 작성자 프로필 페이지로 이동
         postList.innerHTML += `<li>
                 <span class="post-title" data-post-id="${post.id}">${post.title}</span>
-                <button class="detail-btn" data-post-id="${post.id}">상세보기</button>
+                <button class="detail-btn" data-post-id="${post.id}">${post.userId}</button>
             </li>`;
 
         // const li = document.createElement("li");
@@ -119,8 +120,9 @@ async function getComments(postId) {
       commentList.innerHTML = `<p class="commentCnt">💬 댓글 <strong>${comments.length}</strong>개</p>`;
       comments.forEach((comment) => {
         const emoji = emojiList[Math.floor(Math.random() * emojiList.length)];
+        // 댓글 작성자 id 누르면 링크 타고 프로필 가고싶슨..ㅠ
         commentList.innerHTML += `<li>
-                        <p class="commentUserId">댓글 작성자ID: <strong>${comment.id}</strong></p>
+                        <p class="commentUserId">댓글 작성자ID: <a href=""><strong>${comment.id}</strong></a></p>
                         <p class="commentBody">${emoji} ${comment.body}</p>
                     </li>`;
       });
@@ -151,4 +153,8 @@ postList.addEventListener("click", (event) => {
       getPostDetail(postId);
     }
   }
+});
+
+backBtn.addEventListener("click", () => {
+  changePage("postListContainer");
 });

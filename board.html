@@ -8,16 +8,19 @@
   </head>
   <body>
     <div class="container">
+      <!-- 헤더 -->
       <header>
         <h1>게시판</h1>
         <p>JSONPlaceholder API를 이용한 게시판</p>
       </header>
+      <!-- 게시물 목록 컨테이너 -->
       <div id="postListContainer" class="page-container active">
         <h2>전체 게시물</h2>
         <ul id="postList">
           <p class="loading-message">게시물 불러오는중...</p>
         </ul>
       </div>
+      <!-- 게시물 상세 컨테이너 -->
       <div id="postDetailContainer" class="page-container">
         <h2 id="detailTitle">게시물 제목</h2>
         <p>
@@ -25,14 +28,15 @@
           <span id="detailUserId"></span>
         </p>
         <p id="detailBody" class="detail-content">내용이 들어갈 자리</p>
-        <hr>
+        <hr />
+        <!-- 댓글 -->
         <ul id="commentList">
-            <p class="loading-message">댓글 불러오는중...</p>
+          <p class="loading-message">댓글 불러오는중...</p>
         </ul>
         <button id="backBtn">← 목록으로 돌아가기</button>
       </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="board.js"></script>
   </body>
 </html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-straight/css/uicons-regular-straight.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>게시판</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- 헤더 -->
+      <header>
+        <h1>사용자 프로필</h1>
+        <p>JSONPlaceholder API를 이용한 사용자 프로필</p>
+      </header>
+      <!-- 유저 정보 컨테이너 -->
+      <main id="userContainer">
+        <nav id="userNav">
+          <!-- 해당 버튼에 이벤트 발생시 css style 주기 -->
+          <button type="submit" id="nav-profile" class="selected">
+            프로필
+          </button>
+          <button id="nav-post">게시글</button>
+          <button id="nav-comment">댓글</button>
+        </nav>
+        <!-- 프로필 정보 -->
+        <div id="userProfile" class="user-page-container active">
+          <div id="userProfileImgContainer">
+            <img src="./img/default_profileImg.png" alt="프로필 사진" />
+          </div>
+          <div id="userInfoContainer">
+            <h2 id="userName">이름</h2>
+            <p id="userEmail">
+              <i class="fi fi-rr-envelope"></i>
+            </p>
+            <p id="userPhone">
+              <i class="fi fi-rr-phone-call"></i>
+            </p>
+            <p id="userWebsite">
+              <i class="fi fi-rs-home"></i>
+            </p>
+            <p id="userCompany">
+              <i class="fi fi-rs-building"></i>
+            </p>
+          </div>
+        </div>
+        <!-- 게시글 목록 -->
+        <div id="userPosts" class="user-list user-page-container">
+          <h2>작성한 게시글</h2>
+          <p id="userPostCnt">0개</p>
+          <hr />
+          <div id="postsContainer">
+            <p class="loading-message">게시글 불러오는중...</p>
+          </div>
+        </div>
+        <!-- 작성 댓글 목록 -->
+        <div id="userComments" class="user-list user-page-container">
+          <h2>작성한 댓글</h2>
+          <p id="userCommentCnt">0개</p>
+          <hr />
+          <div id="commentsContainer">
+            <p class="loading-message">댓글 불러오는중...</p>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="user.js"></script>
+  </body>
+</html>

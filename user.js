@@ -1,5 +1,6 @@
 const API_BASE_URL = "https://jsonplaceholder.typicode.com";
-let currentUserId = null;
+const urlParams = new URL(location.href).searchParams;
+const currentUserId = urlParams.get("userId");
 
 // 내비게이션
 const userNav = document.querySelector("#userNav");
@@ -50,7 +51,6 @@ function changePage(pageElement, navElement) {
 // 사용자 프로필 요청 함수
 async function getUserProfile(userId) {
   try {
-    console.log("불러오는중");
     // 초기화
     userName.textContent = "";
     userEmail.textContent = "";
@@ -70,7 +70,7 @@ async function getUserProfile(userId) {
     userEmail.innerHTML = `<i class="fi fi-rr-envelope"></i><span>${profile.email}</span>`;
     userPhone.innerHTML = `<i class="fi fi-rr-phone-call"></i><span>${profile.phone}</span>`;
     userWebsite.innerHTML = `<i class="fi fi-rs-home"></i><span>${profile.website}</span>`;
-    userCompany.innerHTML = `<i class="fi fi-rs-building"></i><span>${profile.company.name}</span>`;
+    userCompany.innerHTML = `<i class="fi fi-rs-building"></i><span>${profile.company.name}</span><`;
   } catch (error) {
     alert(error.message);
   }
@@ -190,3 +190,5 @@ navComment.addEventListener("click", () => {
   getUserComments("이름없음..");
   changePage(userComments, navComment);
 });
+
+getUserProfile(currentUserId);

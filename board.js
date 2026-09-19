@@ -92,6 +92,7 @@ async function getPostDetail(postId) {
     detailTitle.textContent = post.title;
     detailPostId.textContent = post.id;
     detailUserId.textContent = post.userId;
+    detailUserId.setAttribute("href", `./user.html?userId=${post.userId}`);
     detailBody.textContent = post.body;
 
     // 댓글 요청 함수 호출
@@ -122,7 +123,7 @@ async function getComments(postId) {
         const emoji = emojiList[Math.floor(Math.random() * emojiList.length)];
         // 댓글 작성자 id 누르면 링크 타고 프로필 가고싶슨..ㅠ
         commentList.innerHTML += `<li>
-                        <p class="commentUserId">댓글 작성자ID: <a href=""><strong>${comment.id}</strong></a></p>
+                        <p class="commentUserId">댓글 작성자: <strong>${comment.name}</strong></p>
                         <p class="commentBody">${emoji} ${comment.body}</p>
                     </li>`;
       });
@@ -141,17 +142,21 @@ getPosts();
 postList.addEventListener("click", (event) => {
   // event: 브라우저가 자동으로 넘겨주는 이벤트 객체
   const target = event.target;
-  // 만약 이벤트가 발생한 요소가 제목이거나 버튼이면
-  if (
-    target.classList.contains("post-title") ||
-    target.classList.contains("detail-btn")
-  ) {
+  // 만약 이벤트가 발생한 요소가 제목이면
+  if (target.classList.contains("post-title")) {
     // 게시물 아이디 갖고 있음
     const postId = target.dataset.postId;
     // 그 아이디로 게시물 조회
     if (postId) {
       getPostDetail(postId);
     }
+  } else if (target.classList.contains("detail-btn")) {
+    // 작성자 프로필 페이지로 이동
+    const userId = target.textContent;
+    if (userId) {
+      window.location.href = `user.html?userId=${userId}`;
+    }
+    // 그럼 얘는 user.html에서 어떻게 받는데 ㅠ...
   }
 });
 

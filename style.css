@@ -111,7 +111,7 @@ button {
 button:hover {
   background-color: #e69807;
 }
- 
+
 /* 게시물 상세 페이지 - 본문 */
 #postDetailContainer {
   padding: 30px;
@@ -125,6 +125,16 @@ button:hover {
 #detailTitle {
   font-size: 1.6em;
   color: #e69807;
+}
+
+#detailUserId {
+  text-decoration: none;
+  color: black;
+  font-size: 1em;
+  color: #888;
+}
+#detailUserId:hover {
+  font-weight: 500;
 }
 
 #detailBody {
@@ -171,8 +181,6 @@ hr {
   margin: 0;
   margin-bottom: 5px;
 }
-
-
 
 .commentBody {
   font-size: 1em;
@@ -334,6 +342,7 @@ hr {
 .userPostBody {
   margin: 0;
   font-size: 1em;
+  color: #666;
   cursor: pointer;
 }
 
